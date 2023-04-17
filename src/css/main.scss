@@ -1,0 +1,6 @@
+@use 'vuetify';
+
+// Overwrite default css styles of vuetify
+html {
+  overflow-y: auto;
+}
