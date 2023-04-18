@@ -9,8 +9,8 @@
       <v-list>
         <v-list-item
           prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
-          title="Sandra Adams"
-          subtitle="sandra_a88@gmailcom"
+          :title="account"
+          :subtitle="account"
         ></v-list-item>
       </v-list>
       <v-divider />
@@ -27,8 +27,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useDisplay } from "vuetify";
+import { storeToRefs } from "pinia";
 import ThemeButton from "../components/ThemeButton.vue";
+import { useUserStore } from "../store/user";
 
 const { mobile } = useDisplay();
+const user = useUserStore();
+const { account, userId } = storeToRefs(user);
 const drawer = ref(!mobile.value);
 </script>

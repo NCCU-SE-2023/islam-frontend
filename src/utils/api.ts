@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig } from "axios";
-axios.defaults.baseURL = "/api";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 
@@ -52,7 +51,7 @@ export const fetchApi = (
   method: string,
   options?: AxiosRequestConfig<any>
 ) =>
-  ajax(url, method, "/api", {
+  ajax(url, method, "/api/v1", {
     ...options,
     headers: {
       // header options
