@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --port 3000"
   },
   "dependencies": {
     "d3": "^7.8.4",
+    "pinia": "^2.0.34",
     "vue": "^3.2.47",
     "vue-router": "4",
     "vuetify": "^3.1.13"
