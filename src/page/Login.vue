@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import RegisterCard from "../components/RegisterCard.vue"
+import RegisterCard from "../components/RegisterCard.vue";
 import LoginCard from "../components/LoginCard.vue";
 
 const tab = ref(null);

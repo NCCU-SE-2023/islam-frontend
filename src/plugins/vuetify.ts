@@ -1,5 +1,5 @@
 import "../css/main.scss";
-import '@mdi/font/css/materialdesignicons.css'
+import "@mdi/font/css/materialdesignicons.css";
 import { ThemeDefinition, createVuetify } from "vuetify";
 
 const light: ThemeDefinition = {

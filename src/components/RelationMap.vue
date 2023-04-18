@@ -165,6 +165,6 @@ const chart = () => {
 };
 
 onMounted(() => {
-  chart()
+  chart();
 });
 </script>
