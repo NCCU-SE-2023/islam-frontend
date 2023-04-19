@@ -10,8 +10,13 @@ export const useUserStore = defineStore("user", () => {
    * user login
    * @returns Promise object
    */
-  const login = async () => {
-    const response = await fetchApi("/islam/user/login", "GET");
+  const login = async (account: string, password: string) => {
+    const response = await fetchApi("/islam/user/login", "GET", {
+      params: {
+        account,
+        password,
+      },
+    });
     if (response.status !== 200) {
       const { error_code, error_message } = response.data as ErrorResponse;
       // error sections
@@ -25,8 +30,13 @@ export const useUserStore = defineStore("user", () => {
    * user register
    * @returns Promise object
    */
-  const register = async () => {
-    const response = await fetchApi("/islam/user/register", "POST");
+  const register = async (account: string, password: string) => {
+    const response = await fetchApi("/islam/user/register", "POST", {
+      data: {
+        account,
+        password,
+      },
+    });
     if (response.status !== 200) {
       const { error_code, error_message } = response.data as ErrorResponse;
       // error sections
