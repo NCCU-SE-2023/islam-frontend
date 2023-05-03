@@ -2,16 +2,8 @@
   <v-form @submit.prevent="submitForm">
     <v-col class="pl-5 pr-5 pb-0">
       <v-text-field
-        v-model="name"
-        label="Name"
-        variant="underlined"
-        required
-      ></v-text-field>
-    </v-col>
-    <v-col class="pl-5 pr-5 pb-0">
-      <v-text-field
-        v-model="email"
-        label="Email"
+        v-model="account_"
+        label="Account"
         type="email"
         variant="underlined"
         required
@@ -19,7 +11,7 @@
     </v-col>
     <v-col class="pl-5 pr-5 pb-0">
       <v-text-field
-        v-model="password"
+        v-model="password_"
         label="Password"
         type="password"
         variant="underlined"
@@ -35,19 +27,24 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { storeToRefs } from "pinia";
+import { useUserStore } from "../store/user";
 
-const name = ref("");
-const email = ref("");
-const password = ref("");
+const user = useUserStore();
+const { register } = user;
+const { account, userId } = storeToRefs(user);
+const account_ = ref("");
+const password_ = ref("");
 
 const passwordRules = {
   password: (v: string) =>
     (v && v.length >= 8) || "Password must be greater than 8 characters",
 };
 
-const submitForm = () => {
-  console.log(name.value);
-  console.log(email.value);
-  console.log(password.value);
+const submitForm = async () => {
+  console.log(account_.value);
+  console.log(password_.value);
+  await register(account_.value, password_.value);
+  console.log(userId);
 };
 </script>

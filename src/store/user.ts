@@ -11,7 +11,7 @@ export const useUserStore = defineStore("user", () => {
    * @returns Promise object
    */
   const login = async (account: string, password: string) => {
-    const response = await fetchApi("/islam/user/login", "GET", {
+    const response = await fetchApi("/islam/user/", "GET", {
       params: {
         account,
         password,
@@ -31,7 +31,7 @@ export const useUserStore = defineStore("user", () => {
    * @returns Promise object
    */
   const register = async (account: string, password: string) => {
-    const response = await fetchApi("/islam/user/register", "POST", {
+    const response = await fetchApi("/islam/user", "POST", {
       data: {
         account,
         password,

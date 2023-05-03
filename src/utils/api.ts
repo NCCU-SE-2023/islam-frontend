@@ -7,7 +7,7 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
  * 
  * @param url - The base url
  * @param method - HTTP method
- * @param basseURL - Prefix url
+ * @param baseURL - Prefix url
  * @param options - Other axios options
  * @returns - Promise object
 **/
