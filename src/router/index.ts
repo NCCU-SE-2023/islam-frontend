@@ -1,16 +1,26 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Login from "../page/Login.vue";
-import Index from "../page/Index.vue";
-import Cookie from "../page/Cookie.vue";
+import IG from "../page/IG.vue";
+import Task from "../page/Task.vue";
+import Query from "../page/Query.vue";
 import DefaultLayout from "../layout/index.vue";
 
 const routes = [
-  { path: "/login", component: Login },
-  { path: "/cookie", component: Cookie },
-  {
-    path: "/",
+  { path: "/", component: Login },
+  { 
+    path: "/ig",
     component: DefaultLayout,
-    children: [{ path: "", component: Index }],
+    children: [{ path: "", component: IG }],
+  },
+  { 
+    path: "/task",
+    component: DefaultLayout,
+    children: [{ path: "", component: Task }],
+  },
+  { 
+    path: "/query",
+    component: DefaultLayout,
+    children: [{ path: "", component: Query }],
   },
 ];
 

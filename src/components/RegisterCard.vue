@@ -44,7 +44,8 @@ const passwordRules = {
 const submitForm = async () => {
   console.log(account_.value);
   console.log(password_.value);
-  await register(account_.value, password_.value);
-  console.log(userId);
+  await register(account_.value, password_.value).then((result) => {
+    console.log(userId);
+  });
 };
 </script>

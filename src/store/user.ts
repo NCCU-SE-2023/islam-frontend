@@ -11,8 +11,8 @@ export const useUserStore = defineStore("user", () => {
    * @returns Promise object
    */
   const login = async (account: string, password: string) => {
-    const response = await fetchApi("/islam/user/", "GET", {
-      params: {
+    const response = await fetchApi("/islam/user", "GET", {
+      data: {
         account,
         password,
       },

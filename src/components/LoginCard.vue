@@ -29,12 +29,15 @@
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useUserStore } from "../store/user";
+import { useRoute, useRouter } from "vue-router";
 
 const user = useUserStore();
 const { login } = user;
 const { account, userId } = storeToRefs(user);
 const account_ = ref("");
 const password_ = ref("");
+const router = useRouter();
+const route = useRoute();
 
 const passwordRules = {
   password: (v: string) =>
@@ -44,7 +47,9 @@ const passwordRules = {
 const submitForm = async () => {
   /* console.log(account_.value); */
   /* console.log(password_.value); */
-  await login(account_.value, password_.value);
-  console.log(account, userId);
+  await login(account_.value, password_.value).then(result => {
+    console.log(account, userId);
+    router.push('/');
+  })
 };
 </script>
