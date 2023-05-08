@@ -1,5 +1,5 @@
 <template>
-  <v-form @submit.prevent="submitForm">
+  <v-form validate-on="submit" @submit.prevent="submitForm">
     <v-col class="pl-5 pr-5 pb-0">
       <v-text-field
         v-model="account_"
@@ -47,9 +47,11 @@ const passwordRules = {
 const submitForm = async () => {
   /* console.log(account_.value); */
   /* console.log(password_.value); */
-  await login(account_.value, password_.value).then(result => {
-    console.log(account, userId);
-    router.push('/');
-  })
+  if (password_.value.length >= 8) {
+    await login(account_.value, password_.value).then((result) => {
+      console.log(account, userId);
+      router.push("/ig");
+    });
+  }
 };
 </script>
