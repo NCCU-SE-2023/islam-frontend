@@ -52,10 +52,11 @@ export const fetchApi = (
   options?: AxiosRequestConfig<any>
 ) =>
   ajax(url, method, "/api/v1", {
-    ...options,
     headers: {
       // header options
     },
+    ...options,
+
   });
 
 export default ajax;

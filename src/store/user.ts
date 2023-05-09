@@ -22,8 +22,8 @@ export const useUserStore = defineStore("user", () => {
       // error sections
       return;
     }
-    const { user_id } = response.data as UserResponse;
-    userId.value = user_id;
+    const { user_id } = response.headers;
+    userId.value = user_id
   };
 
   /**
