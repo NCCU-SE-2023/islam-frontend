@@ -139,7 +139,7 @@ const chart = () => {
 
   node
     .append("circle")
-    .attr("stroke", "white")
+    .attr("class", "stroke-text")
     .attr("stroke-width", 1.5)
     .attr("r", 4);
 
@@ -151,7 +151,7 @@ const chart = () => {
     .clone(true)
     .lower()
     .attr("fill", "none")
-    .attr("stroke", "white")
+    .attr("class", "stroke-text")
     .attr("stroke-width", 3);
 
   simulation.on("tick", () => {
@@ -165,6 +165,6 @@ const chart = () => {
 };
 
 onMounted(() => {
-  chart()
+  chart();
 });
 </script>
