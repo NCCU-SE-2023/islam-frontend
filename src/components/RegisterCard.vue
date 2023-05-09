@@ -46,19 +46,17 @@ const account_ = ref("");
 const password_ = ref("");
 const snackbar = ref(false);
 
-const passwordRules = {
-  password: (v: string) =>
-    (v && v.length >= 8) || "Password must be greater than 8 characters",
-};
+const passwordRules = (v: string) =>
+  (v && v.length >= 8) || "Password must be greater than 8 characters";
 
 const submitForm = async () => {
   console.log(account_.value);
   console.log(password_.value);
-  if(password_.value.length >= 8) {
-  await register(account_.value, password_.value).then((result) => {
-    console.log(userId);
-    snackbar.value = true;
-  });
+  if (password_.value.length >= 8) {
+    await register(account_.value, password_.value).then((result) => {
+      console.log(userId);
+      snackbar.value = true;
+    });
   }
 };
 </script>
