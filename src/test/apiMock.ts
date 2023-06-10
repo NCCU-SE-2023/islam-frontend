@@ -1,6 +1,8 @@
-import { rest } from "msw";
+import { afterAll, afterEach, beforeAll } from "vitest";
+import { setupServer } from "msw/node";
+import { graphql, rest } from "msw";
 
-export default [
+export const requests = [
   rest.get("/api", (req, res, ctx) => {
     return res(
       ctx.json({
@@ -46,3 +48,14 @@ export default [
     );
   }),
 ];
+
+const server = setupServer(...requests);
+
+// Start server before all tests
+beforeAll(() => server.listen({ onUnhandledRequest: "error" }));
+
+//  Close server after all tests
+afterAll(() => server.close());
+
+// Reset handlers after each test `important for test isolation`
+afterEach(() => server.resetHandlers());

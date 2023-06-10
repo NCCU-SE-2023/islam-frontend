@@ -11,5 +11,6 @@ export default defineConfig({
     deps: {
       inline: ["vuetify"],
     },
+    setupFiles: ["./src/test/apiMock.ts"]
   },
 });

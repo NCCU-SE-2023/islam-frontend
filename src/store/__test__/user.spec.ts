@@ -9,17 +9,6 @@ import {
 import { setActivePinia, createPinia } from "pinia";
 import { useUserStore } from "../user";
 import { setupServer } from "msw/node";
-import handlers from "../../test/apiMock";
-
-const server = setupServer(...handlers);
-
-beforeAll(() => {
-  server.listen({ onUnhandledRequest: "error" });
-});
-
-afterAll(() => {
-  server.close();
-});
 
 describe("User store", () => {
   beforeEach(() => {
