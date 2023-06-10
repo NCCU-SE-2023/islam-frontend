@@ -1,12 +1,10 @@
 import { computed } from "vue";
-import { useDisplay } from "vuetify";
 
 const useDate = () => {
-  const { smAndDown: vuetifyMobile } = useDisplay();
 
   const getDate = computed(() => {
     return (dateString: string, mobile?: boolean) => {
-      const isMobile = mobile === undefined ? vuetifyMobile.value : mobile;
+      const isMobile = mobile === undefined ? false : mobile;
       const date = new Date(dateString);
       return (
         (isMobile ? "" : date.getFullYear() + "/") +
