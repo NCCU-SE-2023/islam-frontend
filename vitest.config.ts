@@ -11,6 +11,9 @@ export default defineConfig({
     deps: {
       inline: ["vuetify"],
     },
-    setupFiles: ["./src/test/apiMock.ts"]
+    setupFiles: ["./src/test/apiMock.ts"],
+    coverage: {
+      reporter: ["text", "json-summary", "json"],
+    },
   },
 });
