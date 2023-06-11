@@ -21,7 +21,7 @@ export const requests = [
           error_message: `User ${account} not found`,
         })
       );
-    } else if (account === "abc@gmail.com" && password !== "123456") {
+    } else if (account === "abc@gmail.com" && password !== "12345678") {
       return res(
         ctx.status(404),
         ctx.json({
