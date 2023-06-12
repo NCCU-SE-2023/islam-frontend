@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview --port 3000",
     "format": "prettier --write .",
-    "lint": "vue-tsc",
+    "lint": "eslint --ext .vue,.ts src && vue-tsc",
     "test": "TZ=UTC vitest run",
     "test:dev": "TZ=UTC vitest",
     "coverage": "TZ=UTC vitest run --coverage"
