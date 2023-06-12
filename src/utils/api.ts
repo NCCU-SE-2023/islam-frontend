@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosRequestConfig } from "axios";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
@@ -17,6 +18,7 @@ export const ajax = async (
   options?: AxiosRequestConfig<any>
 ) => {
   if (options !== undefined) {
+    // eslint-disable-next-line no-var
     var { params = {}, data = {} } = options;
   } else {
     params = data = null;
