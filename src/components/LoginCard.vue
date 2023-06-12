@@ -5,6 +5,7 @@
         v-model="account_"
         label="Account"
         type="email"
+        id="account"
         variant="underlined"
         required
       ></v-text-field>
@@ -14,9 +15,10 @@
         v-model="password_"
         label="Password"
         type="password"
+        id="password"
         variant="underlined"
         required
-        :rules="[passwordRules.password]"
+        :rules="[passwordRules?.password]"
       ></v-text-field>
     </v-col>
     <v-col class="d-flex justify-center pb-3">
