@@ -4,6 +4,7 @@
       <v-text-field
         v-model="account_"
         label="Account"
+        id="account"
         type="email"
         variant="underlined"
         required
@@ -13,6 +14,7 @@
       <v-text-field
         v-model="password_"
         label="Password"
+        id="password"
         type="password"
         variant="underlined"
         required
