@@ -23,7 +23,7 @@ export const useUserStore = defineStore("user", () => {
       return;
     }
     const { user_id } = response.headers;
-    userId.value = user_id
+    userId.value = user_id;
   };
 
   /**

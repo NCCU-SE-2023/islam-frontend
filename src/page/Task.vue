@@ -126,7 +126,7 @@ const handleCreate = async () => {
 
 const getStatusColor = computed(() => {
   return (status: TaskStatus) => {
-    switch(status) {
+    switch (status) {
       case "ERROR":
         return "error";
       case "FINISHED":
@@ -134,7 +134,7 @@ const getStatusColor = computed(() => {
       case "NEW":
         return "warning";
       case "RUNNING":
-        return "info"
+        return "info";
     }
   };
 });

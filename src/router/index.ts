@@ -7,17 +7,17 @@ import DefaultLayout from "../layout/index.vue";
 
 const routes = [
   { path: "/", component: Login },
-  { 
+  {
     path: "/ig",
     component: DefaultLayout,
     children: [{ path: "", component: IG }],
   },
-  { 
+  {
     path: "/task",
     component: DefaultLayout,
     children: [{ path: "", component: Task }],
   },
-  { 
+  {
     path: "/query",
     component: DefaultLayout,
     children: [{ path: "", component: Query }],

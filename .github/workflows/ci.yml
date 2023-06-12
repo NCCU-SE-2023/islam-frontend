@@ -22,10 +22,10 @@ jobs:
 
       - name: Lint
         run: pnpm run lint
-      
+
       - name: Test
         run: pnpm run coverage
 
-      - name: 'Report Coverage'
+      - name: "Report Coverage"
         if: always() # Also generate the report if tests are failing
-        uses:  davelosert/vitest-coverage-report-action@v1
+        uses: davelosert/vitest-coverage-report-action@v1
