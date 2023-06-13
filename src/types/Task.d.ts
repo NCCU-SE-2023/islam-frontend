@@ -21,6 +21,7 @@ interface Task {
   task_detail: {
     account: string;
     password: string;
+    target_ig_id: string;
   };
   task_id: string;
   type: TaskType;
@@ -32,5 +33,6 @@ interface TaskRequest {
   task_detail: {
     account: string;
     password: string;
+    target_ig_id: string;
   };
 }
