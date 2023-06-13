@@ -49,6 +49,7 @@
                 'TAG_ME',
                 'I_TAG',
                 'TEST',
+                'FOLLOWER_AND_FOLLOWING',
               ]"
               v-model="createTask.type"
               hide-details
