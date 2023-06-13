@@ -69,6 +69,13 @@
               hide-details
             />
           </v-col>
+          <v-col cols="12" md="6">
+            <v-text-field
+              label="Target IG ID"
+              v-model="createTask.task_detail.target_ig_id"
+              hide-details
+            />
+          </v-col>
         </v-row>
       </v-card-text>
       <v-card-actions>
@@ -95,6 +102,7 @@ const createTask = reactive<TaskRequest>({
   task_detail: {
     account: "ig_account",
     password: "ig_password",
+    target_ig_id: "target_ig_id"
   },
 });
 const tasks = ref<Task[]>([]);

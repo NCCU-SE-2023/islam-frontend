@@ -6,6 +6,7 @@ type TaskType =
   | "COMMENTS"
   | "TAG_ME"
   | "I_TAG"
+  | "FOLLOWING_AND_FOLLOWER"
   | "TEST";
 
 type TaskStatus = "NEW" | "RUNNING" | "FINISHED" | "ERROR";
