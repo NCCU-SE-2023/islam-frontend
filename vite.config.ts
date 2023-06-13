@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue(), vuetify({ autoImport: true })],
   server: {
     proxy: {
-      '/api': 'http://localhost:5000'
+      '/api': 'http://localhost:5555'
     }
   }
 });
