@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { compited, ref } from "vue";
+import { computed, ref } from "vue";
 import { fetchApi } from "../utils/api";
 
 export const useQueryStore = defineStore("query", () => {
@@ -22,8 +22,8 @@ export const useQueryStore = defineStore("query", () => {
             // error sections
             return;
         };
-        const { user_accounts } = response.body;
-        allAccounts.value = accounts;
+        const user_accounts = response.data;
+        allAccounts.value = user_accounts;
     };
 
     const queryAll = async (user_account: string) => {
@@ -37,8 +37,8 @@ export const useQueryStore = defineStore("query", () => {
             // error sections
             return;
         };
-        const { user_accounts } = response.body;
-        specAccounts.value = accounts;
+        const user_accounts = response.data;
+        specAccounts.value = user_accounts;
     };
 
     return { allAccounts, specAccounts, queryAll, querySpec };
