@@ -65,7 +65,7 @@
               <v-list-item v-for="(value, key) in item" :key="key">
                 <v-list-item-content class="d-flex align-center">
                   <v-list-item-title>
-                    {{ key }}: {{ value }}  <a :href="`https://www.instagram.com/${key}`">see profile on instagram</a>
+                    <a :href="`https://www.instagram.com/${key}`" target="_blank">{{ key }}</a>: {{ value }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
