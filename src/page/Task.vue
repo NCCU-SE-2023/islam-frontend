@@ -50,6 +50,7 @@
                 'TAG_ME',
                 'I_TAG',
                 'TEST',
+                'FOLLOWER_AND_FOLLOWING',
               ]"
               hide-details
             />
@@ -66,6 +67,13 @@
               v-model="createTask.task_detail.password"
               label="Password"
               type="password"
+              hide-details
+            />
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-text-field
+              v-model="createTask.task_detail.target_ig_id"
+              label="Target IG ID"
               hide-details
             />
           </v-col>
@@ -95,6 +103,7 @@ const createTask = reactive<TaskRequest>({
   task_detail: {
     account: "ig_account",
     password: "ig_password",
+    target_ig_id: "target_ig_id"
   },
 });
 const tasks = ref<Task[]>([]);

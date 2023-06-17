@@ -6,6 +6,7 @@ type TaskType =
   | "COMMENTS"
   | "TAG_ME"
   | "I_TAG"
+  | "FOLLOWING_AND_FOLLOWER"
   | "TEST";
 
 type TaskStatus = "NEW" | "RUNNING" | "FINISHED" | "ERROR";
@@ -20,6 +21,7 @@ interface Task {
   task_detail: {
     account: string;
     password: string;
+    target_ig_id: string;
   };
   task_id: string;
   type: TaskType;
@@ -31,5 +33,6 @@ interface TaskRequest {
   task_detail: {
     account: string;
     password: string;
+    target_ig_id: string;
   };
 }
