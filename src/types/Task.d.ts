@@ -14,7 +14,7 @@ type TaskStatus = "NEW" | "RUNNING" | "FINISHED" | "ERROR";
 interface Task {
   create_at: number;
   create_user: string;
-  error_msg: any;
+  error_msg: string;
   priority: number;
   retry_times: number;
   status: TaskStatus;

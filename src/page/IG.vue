@@ -36,9 +36,9 @@
       </v-col>
       <v-col class="d-flex flex-column justify-center">
         <v-textarea
+          v-model="cookie"
           style="width: 60vw; max-width: 600px"
           label="Cookie from Instagram"
-          v-model="cookie"
         ></v-textarea>
         <v-btn
           class="align-self-center"

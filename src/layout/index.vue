@@ -69,12 +69,11 @@ import { useDisplay } from "vuetify";
 import { storeToRefs } from "pinia";
 import ThemeButton from "../components/ThemeButton.vue";
 import { useUserStore } from "../store/user";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 
 const { mobile } = useDisplay();
 const user = useUserStore();
-const { account, userId } = storeToRefs(user);
+const { account } = storeToRefs(user);
 const drawer = ref(!mobile.value);
 const router = useRouter();
-const route = useRoute();
 </script>

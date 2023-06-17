@@ -6,18 +6,22 @@
 import * as d3 from "d3";
 import { onMounted } from "vue";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const drag = (simulation: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function dragstarted(event: any, d: any) {
     if (!event.active) simulation.alphaTarget(0.3).restart();
     d.fx = d.x;
     d.fy = d.y;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function dragged(event: any, d: any) {
     d.fx = event.x;
     d.fy = event.y;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function dragended(event: any, d: any) {
     if (!event.active) simulation.alphaTarget(0);
     d.fx = null;
@@ -31,6 +35,7 @@ const drag = (simulation: any) => {
     .on("end", dragended);
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function linkArc(d: any) {
   const r = Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y);
   return `
@@ -86,6 +91,7 @@ const chart = () => {
     .forceSimulation(nodes)
     .force(
       "link",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       d3.forceLink(links).id((d: any) => d.id)
     )
     .force("charge", d3.forceManyBody().strength(-400))
@@ -135,6 +141,7 @@ const chart = () => {
     .selectAll("g")
     .data(nodes)
     .join("g")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .call(drag(simulation) as any);
 
   node

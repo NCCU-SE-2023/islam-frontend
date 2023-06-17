@@ -2,20 +2,20 @@
   <v-form validate-on="submit" @submit.prevent="submitForm">
     <v-col class="pl-5 pr-5 pb-0">
       <v-text-field
+        id="account"
         v-model="account_"
         label="Account"
         type="email"
-        id="account"
         variant="underlined"
         required
-      ></v-text-field>
+      />
     </v-col>
     <v-col class="pl-5 pr-5 pb-0">
       <v-text-field
+        id="password"
         v-model="password_"
         label="Password"
         type="password"
-        id="password"
         variant="underlined"
         required
         :rules="[passwordRules?.password]"
@@ -31,7 +31,7 @@
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useUserStore } from "../store/user";
-import { useRoute, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 
 const user = useUserStore();
 const { login } = user;
@@ -39,7 +39,6 @@ const { account, userId } = storeToRefs(user);
 const account_ = ref("");
 const password_ = ref("");
 const router = useRouter();
-const route = useRoute();
 
 const passwordRules = {
   password: (v: string) =>
@@ -50,7 +49,7 @@ const submitForm = async () => {
   /* console.log(account_.value); */
   /* console.log(password_.value); */
   if (password_.value.length >= 8) {
-    await login(account_.value, password_.value).then((result) => {
+    await login(account_.value, password_.value).then(() => {
       console.log(account, userId);
       router.push("/ig");
     });

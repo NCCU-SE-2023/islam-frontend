@@ -1033,15 +1033,9 @@
     "maandu1da"
   ],
   "followers_change_count": 0,
-  "followers_change_list": [
-    "none"
-  ],
+  "followers_change_list": ["none"],
   "scrape_user_count": 1,
-  "scrape_user_list": [
-    "testislam"
-  ],
+  "scrape_user_list": ["testislam"],
   "scraped_times": 1,
-  "scraped_task_list": [
-    "202CB962AC59075B964B07152D234B40"
-  ]
+  "scraped_task_list": ["202CB962AC59075B964B07152D234B40"]
 }

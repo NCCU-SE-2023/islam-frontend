@@ -30,15 +30,16 @@
     <v-card
       class="pa-4"
       tag="form"
-      @submit.prevent="handleCreate"
       :loading="loading"
       :disabled="loading"
+      @submit.prevent="handleCreate"
     >
       <v-card-title>Create Task</v-card-title>
       <v-card-text>
         <v-row>
           <v-col cols="12">
             <v-select
+              v-model="createTask.type"
               label="Type"
               :items="[
                 'BASIC',
@@ -51,22 +52,21 @@
                 'TEST',
                 'FOLLOWER_AND_FOLLOWING',
               ]"
-              v-model="createTask.type"
               hide-details
             />
           </v-col>
           <v-col cols="12" md="6">
             <v-text-field
-              label="Account"
               v-model="createTask.task_detail.account"
+              label="Account"
               hide-details
             />
           </v-col>
           <v-col cols="12" md="6">
             <v-text-field
+              v-model="createTask.task_detail.password"
               label="Password"
               type="password"
-              v-model="createTask.task_detail.password"
               hide-details
             />
           </v-col>
@@ -121,6 +121,7 @@ const init = async () => {
 
 const handleCreate = async () => {
   loading.value = true;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const response = await fetchApi("/islam/task", "post", {
     data: {
       task_info: createTask,
@@ -135,7 +136,7 @@ const handleCreate = async () => {
 
 const getStatusColor = computed(() => {
   return (status: TaskStatus) => {
-    switch(status) {
+    switch (status) {
       case "ERROR":
         return "error";
       case "FINISHED":
@@ -143,7 +144,7 @@ const getStatusColor = computed(() => {
       case "NEW":
         return "warning";
       case "RUNNING":
-        return "info"
+        return "info";
     }
   };
 });
