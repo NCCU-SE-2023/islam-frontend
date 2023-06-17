@@ -72,8 +72,8 @@
           </v-col>
           <v-col cols="12" md="6">
             <v-text-field
-              label="Target IG ID"
               v-model="createTask.task_detail.target_ig_id"
+              label="Target IG ID"
               hide-details
             />
           </v-col>

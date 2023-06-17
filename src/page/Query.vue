@@ -3,16 +3,14 @@
     class="pa-4 mb-4"
     tag="form"
     @submit.prevent="handleQueryAll"
-    :loading="loading"
-    :disabled="loading"
   >
     <v-card-title>Query Account</v-card-title>
     <v-card-text>
       <v-row>
         <v-col cols="12" md="6">
           <v-text-field
-            label="user_account"
             v-model="user_account"
+            label="user_account"
             hide-details
           />
         </v-col>
@@ -23,15 +21,13 @@
     class="pa-4 mb-4"
     tag="form"
     @submit.prevent="handleQuerySpec(checkedKeys)"
-    :loading="loading"
-    :disabled="loading"
   >
     <v-card-title>Follower and Following List</v-card-title>
     <v-card-text>
       <v-row>
         <v-col cols="12" md="6">
           <v-list dense>
-            <v-list-item v-for="item in allAccounts">
+            <v-list-item v-for="item in allAccounts" :key="item">
               <v-list-item-content class="d-flex align-center">
                 <v-list-item-title>{{ item }}</v-list-item-title>
                 <v-checkbox
@@ -55,13 +51,13 @@
       >
     </v-card-actions>
   </v-card>
-  <v-card class="pa-4" tag="form" :loading="loading" :disabled="loading">
+  <v-card class="pa-4" tag="form">
     <v-card-title>Result List</v-card-title>
     <v-card-text>
       <v-row>
         <v-col cols="12" md="6">
           <v-list dense>
-            <v-list-item v-for="item in specAccounts">
+            <v-list-item v-for="item in specAccounts" :key="item">
               <v-list-item v-for="(value, key) in item" :key="key">
                 <v-list-item-content class="d-flex align-center">
                   <v-list-item-title>
@@ -87,21 +83,20 @@
 </template>
 
 <script setup lang="ts">
-import RelationMap from "../components/RelationMap.vue";
 import { useQueryStore } from "../store/query";
-import { ref, onMounted, reactive, computed } from "vue";
+import { ref } from "vue";
 import { storeToRefs } from "pinia";
 
 const query = useQueryStore();
 const { queryAll, querySpec } = query;
 const { allAccounts, specAccounts } = storeToRefs(query);
 const user_account = ref("");
-const checkedKeys = ref([]);
+const checkedKeys = ref<string[]>([]);
 const snackbar = ref(false);
 
-const handleCheckboxChange = (key) => {
+const handleCheckboxChange = (key: string) => {
   console.log(checkedKeys.value);
-  if (checkedKeys.includes(key)) {
+  if (checkedKeys.value.includes(key)) {
     checkedKeys.value = checkedKeys.value.filter((k) => k !== key);
   } else {
     checkedKeys.value.push(key);
@@ -119,7 +114,7 @@ const handleQueryAll = async () => {
     });
 };
 
-const handleQuerySpec = async (checkedKeys) => {
+const handleQuerySpec = async (checkedKeys: string[]) => {
   console.log(checkedKeys);
   if (checkedKeys.length > 5) {
     snackbar.value = true;
