@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { fetchApi } from "../utils/api";
 
 export const useUserStore = defineStore("user", () => {
@@ -18,12 +18,13 @@ export const useUserStore = defineStore("user", () => {
       },
     });
     if (response.status !== 200) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { error_code, error_message } = response.data as ErrorResponse;
       // error sections
       return;
     }
     const { user_id } = response.headers;
-    userId.value = user_id
+    userId.value = user_id;
   };
 
   /**
@@ -38,6 +39,7 @@ export const useUserStore = defineStore("user", () => {
       },
     });
     if (response.status !== 200) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { error_code, error_message } = response.data as ErrorResponse;
       // error sections
       return;

@@ -9,6 +9,7 @@
     <v-list>
       <v-list-item
         v-for="theme in themes"
+        :key="theme"
         :value="theme"
         @click="changeTheme(theme)"
       >

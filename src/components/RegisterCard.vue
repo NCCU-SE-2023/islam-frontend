@@ -2,9 +2,9 @@
   <v-form validate-on="submit" @submit.prevent="submitForm">
     <v-col class="pl-5 pr-5 pb-0">
       <v-text-field
+        id="account"
         v-model="account_"
         label="Account"
-        id="account"
         type="email"
         variant="underlined"
         required
@@ -12,9 +12,9 @@
     </v-col>
     <v-col class="pl-5 pr-5 pb-0">
       <v-text-field
+        id="password"
         v-model="password_"
         label="Password"
-        id="password"
         type="password"
         variant="underlined"
         required
@@ -43,7 +43,7 @@ import { useUserStore } from "../store/user";
 
 const user = useUserStore();
 const { register } = user;
-const { account, userId } = storeToRefs(user);
+const { userId } = storeToRefs(user);
 const account_ = ref("");
 const password_ = ref("");
 const snackbar = ref(false);
@@ -55,7 +55,7 @@ const submitForm = async () => {
   console.log(account_.value);
   console.log(password_.value);
   if (password_.value.length >= 8) {
-    await register(account_.value, password_.value).then((result) => {
+    await register(account_.value, password_.value).then(() => {
       console.log(userId);
       snackbar.value = true;
     });

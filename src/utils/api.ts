@@ -1,16 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosRequestConfig } from "axios";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
-
 /**
  * Wrapper function of axios
- * 
+ *
  * @param url - The base url
  * @param method - HTTP method
  * @param baseURL - Prefix url
  * @param options - Other axios options
  * @returns - Promise object
-**/
+ **/
 export const ajax = async (
   url: string,
   method: string,
@@ -18,6 +18,7 @@ export const ajax = async (
   options?: AxiosRequestConfig<any>
 ) => {
   if (options !== undefined) {
+    // eslint-disable-next-line no-var
     var { params = {}, data = {} } = options;
   } else {
     params = data = null;
@@ -37,10 +38,9 @@ export const ajax = async (
     });
 };
 
-
 /**
  * Wrapper of ajax function, use `/api` as baseURL
- * 
+ *
  * @param url - Url after `/api`
  * @param method - HTTP method
  * @param options - other axios options
@@ -56,7 +56,6 @@ export const fetchApi = (
       // header options
     },
     ...options,
-
   });
 
 export default ajax;

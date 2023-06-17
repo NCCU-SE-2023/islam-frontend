@@ -1,6 +1,6 @@
 import { afterAll, afterEach, beforeAll } from "vitest";
 import { setupServer } from "msw/node";
-import { graphql, rest } from "msw";
+import { rest } from "msw";
 
 export const requests = [
   rest.get("/api", (req, res, ctx) => {
@@ -39,6 +39,7 @@ export const requests = [
     );
   }),
   rest.post("/api/v1/islam/user", async (req, res, ctx) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { account, password } = await req.json();
 
     return res(
